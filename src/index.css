@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+
+/* Jetons de design : clair par défaut, sombre selon le réglage du téléphone.
+   Les deux séries (s1 = textile, s2 = cosmétiques) sont validées daltoniens
+   et contraste ; la couleur suit toujours le segment, jamais le rang. */
+:root {
+  color-scheme: light dark;
+  --c-bg: #f3f1ec;
+  --c-surface: #fcfcfb;
+  --c-line: #e0ddd5;
+  --c-ink: #0b0b0b;
+  --c-ink-2: #52514e;
+  --c-muted: #6f6e68;
+  --c-brand: #0f3d5e;
+  --c-brand-ink: #ffffff;
+  --c-brand-soft: #e3ecf2;
+  --c-s0: #7c8794;
+  --c-s1: #2a78d6;
+  --c-s2: #eb6834;
+  --c-hot: #b42318;
+  --c-hot-bg: #fee4e2;
+  --c-warm: #93370d;
+  --c-warm-bg: #fef0c7;
+  --c-cold: #1d4e89;
+  --c-cold-bg: #e0edfb;
+  --c-good: #067647;
+  --c-good-bg: #d1fadf;
+  --c-focus: #2a78d6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg: #111110;
+    --c-surface: #1a1a19;
+    --c-line: #333331;
+    --c-ink: #ffffff;
+    --c-ink-2: #c3c2b7;
+    --c-muted: #9a998f;
+    --c-brand: #6db0e3;
+    --c-brand-ink: #0b0b0b;
+    --c-brand-soft: #1b2a35;
+    --c-s0: #8b96a3;
+    --c-s1: #3987e5;
+    --c-s2: #d95926;
+    --c-hot: #fda29b;
+    --c-hot-bg: #4a1613;
+    --c-warm: #fec84b;
+    --c-warm-bg: #43300a;
+    --c-cold: #8fc0f0;
+    --c-cold-bg: #15304d;
+    --c-good: #75e0a7;
+    --c-good-bg: #0b3a24;
+    --c-focus: #6db0e3;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-line: var(--c-line);
+  --color-ink: var(--c-ink);
+  --color-ink-2: var(--c-ink-2);
+  --color-muted: var(--c-muted);
+  --color-brand: var(--c-brand);
+  --color-brand-ink: var(--c-brand-ink);
+  --color-brand-soft: var(--c-brand-soft);
+  --color-s0: var(--c-s0);
+  --color-s1: var(--c-s1);
+  --color-s2: var(--c-s2);
+  --color-hot: var(--c-hot);
+  --color-hot-bg: var(--c-hot-bg);
+  --color-warm: var(--c-warm);
+  --color-warm-bg: var(--c-warm-bg);
+  --color-cold: var(--c-cold);
+  --color-cold-bg: var(--c-cold-bg);
+  --color-good: var(--c-good);
+  --color-good-bg: var(--c-good-bg);
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-focus);
+  outline-offset: 2px;
+}
+
+button,
+a {
+  touch-action: manipulation;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
